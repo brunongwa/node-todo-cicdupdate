@@ -10,14 +10,14 @@ pipeline {
         }
         stage('Build'){
             steps{
-                sh 'docker build -t brunongwa/boystestpipeline:latest .'
+                sh 'docker build -t brunongwa/boystestpipelin1e:latest .'
             }
         }
         stage('Push'){
             steps{
                 withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
                     sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-                    sh 'docker push  brunongwa/boystestpipeline:latest'
+                    sh 'docker push  brunongwa/boystestpipelin1e:latest'
                 }
             }
         }
